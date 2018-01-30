@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html data-use-rem="750">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+    <meta content="telephone=no" name="format-detection">
+    <title>QQ运动</title>
+    <link rel="stylesheet" href="examine.css">
+    <body>
+      <!-- .nonsupport:不支持记步，使用该状态样式-->
+      <!-- .checking: 检测状态-->
+      <div class="main">
+        <!-- 通栏，通过样式【.ios】【.android】【.iphonex】调整通栏高度-->
+        <div class="nav-bar ios">
+          <div class="left">
+            <div class="back">返回</div>
+          </div>
+          <div class="center">
+            <div class="title">步数检测</div>
+          </div>
+          <div class="right"></div>
+        </div>
+        <!--.show:现隐-->
+        <div class="nav-foot-bar show">
+          <div class="inner">
+            <div class="logo"></div>
+            <div class="txt">关注QQ运动，查看运动数据。</div>
+            <div class="btn">关注</div>
+          </div>
+        </div>
+        <div class="contain">
+          <div class="loading">
+            <!--.running:圈圈转动-->
+            <div class="ring running">正在检测</div>
+          </div>
+          <div class="banner">
+            <div class="info">
+              <div class="text">今日步数</div>
+              <div class="num">2048</div>
+              <div class="sub">此检测步数不等于春节红包活动的可用步数</div>
+            </div>
+            <div class="info none">
+              <div class="error">无运动数据</div>
+            </div>
+            <div class="row">
+              <label class="label">设备信息</label><span class="val">iPhone 6s Plus</span>
+            </div>
+            <div class="row">
+              <label class="label">系统版本</label><span class="val">IOS 11</span>
+            </div>
+            <div class="row">
+              <label class="label">QQ版本</label><span class="val">v7.3.5</span>
+            </div>
+          </div>
+          <div class="question">
+            <div class="title">热点问题</div>
+            <ul>
+              <!--.extend: 展开问题答案-->
+              <li class="">
+                <div class="head"><span>我觉得步数统计偏少</span><i></i></div>
+                <div class="answer">
+                  <p>QQ运动是从手机传感器中读取每日运动步数的，如果QQ进程 被系统清理掉则无法读取，会造成步数偏少建议每天早、中、晚，多打开几次QQ (建议使用的时间间隔在2小时以内)，进入手Q动态-【运动】，以便即时更新数据。</p>
+                </div>
+              </li>
+              <li>
+                <div class="head"><span>根微信火其他运动APP不一致</span><i>未开启</i></div>
+                <div class="answer">
+                  <p>你需要xxxxx</p>
+                  <div class="btn">前往设置</div>
+                </div>
+              </li>
+              <li>
+                <div class="head"><span>第三方运动APP数据没同步</span><i>已开启</i></div>
+                <div class="answer">
+                  <p>查看QQ运动首页右上角“我”-“健康数据”-“设置”-“数据来源”开关是否打开。</p>
+                </div>
+              </li>
+              <li>
+                <div class="head"><span>问题4</span>
+                  <!--.done：已开启状态--><i class="done">已开启</i>
+                </div>
+                <div class="answer">
+                  <p>你需要xxxxx</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="other">
+            <div class="title">你的手机不支持记步</div>
+            <!-- .center: 文字居中-->
+            <p class="center">请尝试绑定第三方计步软件，<br>使用QQ登陆并同步步数。</p>
+            <div class="link"><span>绑定第三方软件</span></div>
+          </div>
+        </div>
+      </div>
+    <script type="text/javascript" src="grid-inhead.js"></script>
+    <script type="text/javascript" src="contrast2.js"></script>
+    <script type="text/javascript">
+        Contrast.setBg("img/s.png");
+    </script>
+</html>
