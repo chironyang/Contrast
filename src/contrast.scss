@@ -29,20 +29,52 @@
     z-index: 10000;
     color: #000;
     font-size: .4rem;
-}
-
-.contrast-tip .contrast-design {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    display: -webkit-box;
-    -webkit-box-align: center;
-    -webkit-box-pack: center;
-    right: 50%;
-    text-align: center;
-    background-color: rgba(255, 191, 0, .65);
-    -webkit-animation: contrast-an-show 3s linear .1s both;
+    .contrast-design {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        display: -webkit-box;
+        -webkit-box-align: center;
+        -webkit-box-pack: center;
+        right: 50%;
+        text-align: center;
+        background-color: rgba(255, 191, 0, .65);
+        -webkit-animation: contrast-an-show 3s linear .1s both;
+    }
+    .contrast-drag {
+        position: absolute;
+        left: 0;
+        top: 30%;
+        right: 0;
+        text-align: center;
+        text-shadow: #FC0 0 0 8px;
+        opacity: 0;
+        -webkit-animation: contrast-an-show 3s linear 3.4s both;
+    }
+    .contrast-drag:before {
+        content: "";
+        position: fixed;
+        left: 50%;
+        top: 0;
+        bottom: 0;
+        width: 1px;
+        background-color: #F00;
+        box-shadow: #CCC 0 0 3px;
+    }
+    .contrast-range {
+        position: fixed;
+        bottom: 0;
+        height: 140px;
+        left: 0;
+        right: 0;
+        display: -webkit-box;
+        -webkit-box-align: center;
+        -webkit-box-pack: center;
+        background-color: rgba(255, 191, 0, .65);
+        opacity: 0;
+        -webkit-animation: contrast-an-show 3s linear 6.8s both;
+    }
 }
 
 @-webkit-keyframes contrast-an-show {
@@ -58,42 +90,6 @@
     100% {
         opacity: 0;
     }
-}
-
-.contrast-tip .contrast-drag {
-    position: absolute;
-    left: 0;
-    top: 30%;
-    right: 0;
-    text-align: center;
-    text-shadow: #FC0 0 0 8px;
-    opacity: 0;
-    -webkit-animation: contrast-an-show 3s linear 3.4s both;
-}
-
-.contrast-tip .contrast-drag:before {
-    content: "";
-    position: fixed;
-    left: 50%;
-    top: 0;
-    bottom: 0;
-    width: 1px;
-    background-color: #F00;
-    box-shadow: #CCC 0 0 3px;
-}
-
-.contrast-tip .contrast-range {
-    position: fixed;
-    bottom: 0;
-    height: 140px;
-    left: 0;
-    right: 0;
-    display: -webkit-box;
-    -webkit-box-align: center;
-    -webkit-box-pack: center;
-    background-color: rgba(255,191, 0, .65);
-    opacity: 0;
-    -webkit-animation: contrast-an-show 3s linear 6.8s both;
 }
 
 @-webkit-keyframes contrast-an-flexible {
@@ -115,23 +111,21 @@
     top: 0;
     box-shadow: rgba(0, 0, 0, .2) 0 0 2px;
     -webkit-transition: box-shadow .3s ease-in;
-}
-
-.contrast-box.active {
-    box-shadow: rgb(0, 0, 0) 0 0 4px;
-}
-
-.contrast-box .contrast-percentage {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    /*right: 0;*/
-    min-width: 100%;
-    text-align: center;
-    background-color: yellow;
-    -webkit-transition: opacity .2s ease-in;
-    white-space: nowrap;
-    font-size: .3rem;
+    &.active {
+        box-shadow: rgb(0, 0, 0) 0 0 4px;
+    }
+    .contrast-percentage {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        /*right: 0;*/
+        min-width: 100%;
+        text-align: center;
+        background-color: yellow;
+        -webkit-transition: opacity .2s ease-in;
+        white-space: nowrap;
+        font-size: .3rem;
+    }
 }
 
 .contrast-toolbar {
@@ -148,19 +142,16 @@
     -webkit-transition: -webkit-transform .3s cubic-bezier(0.29, 0.68, 0.44, 1.51), opacity .3s cubic-bezier(0.29, 0.68, 0.44, 1.51);
     -webkit-transform: scale(0);
     opacity: .4;
-}
-
-.contrast-toolbar span {
-    background-color: rgba(0, 0, 0, .4);
-}
-
-.contrast-toolbar span.active {
-    background-color: rgba(33, 150, 243, 1);
-}
-
-.contrast-toolbar.show {
-    opacity: 1;
-    -webkit-transform: scale(1);
+    span {
+        background-color: rgba(0, 0, 0, .4);
+        &.active {
+            background-color: rgba(33, 150, 243, 1);
+        }
+    }
+    &.show {
+        opacity: 1;
+        -webkit-transform: scale(1);
+    }
 }
 
 .contrast-compare {
