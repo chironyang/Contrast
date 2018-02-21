@@ -1,4 +1,133 @@
 (function() {
+    /**
+     * 样式初始化
+     */
+    var style = document.createElement('style');
+    style.type = "text/css";
+    style.innerHTML = '@-webkit-keyframes contrast-an-show{0%{opacity:0}20%{opacity:1}80%{opacity:1}100%{opacity:0}}';
+    document.head.appendChild(style);
+    var cssMap = {
+        "contrast-bg": {
+            width: "100%",
+            height: "100%",
+            backgroundSize: "7.5rem auto",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "left top"
+        },
+        "contrast-tip": {
+            position: "fixed",
+            top: "0",
+            left: "0",
+            right: "0",
+            bottom: "0",
+            zIndex: "10000",
+            color: "#000",
+            fontSize: ".4rem",
+        },
+        "contrast-design": {
+            position: "absolute",
+            top: "0",
+            left: "0",
+            bottom: "0",
+            display: "webkitBox",
+            webkitBoxAlign: "center",
+            webkitBoxPack: "center",
+            right: "50%",
+            textAlign: "center",
+            backgroundColor: "rgba(255, 191, 0, .65)",
+            webkitAnimation: "contrast-an-show 3s linear .1s both",
+        },
+        "contrast-drag": {
+
+            position: "absolute",
+            left: "0",
+            top: "30%",
+            right: "0",
+            textAlign: "center",
+            textShadow: "#FC0 0 0 8px",
+            opacity: "0",
+            webkitAnimation: "contrast-an-show 3s linear 3.4s both",
+        },
+        "contrast-range": {
+            position: "fixed",
+            bottom: "0",
+            height: "140px",
+            left: "0",
+            right: "0",
+            display: "-webkit-box",
+            webkitBoxAlign: "center",
+            webkitBoxPack: "center",
+            backgroundColor: "rgba(255, 191, 0, .65)",
+            opacity: "0",
+            webkitAnimation: "contrast-an-show 3s linear 6.8s both",
+        },
+        "contrast-percentage": {
+            position: "absolute",
+            top: "50%",
+            left: "0",
+            minWidth: "100%",
+            textAlign: "center",
+            backgroundColor: "yellow",
+            webkitTransition: "opacity .2s ease-in",
+            whiteSpace: "nowrap",
+            fontSize: ".3rem",
+        },
+        "contrast-box": {
+            zIndex: "10001",
+            position: "absolute",
+            display: "none",
+            left: "0",
+            top: "0",
+            boxShadow: "rgba(0, 0, 0, .2) 0 0 2px",
+            webkitTransition: "box-shadow .3s ease-in",
+        },
+        "contrast-box-inactive": {
+            boxShadow: "rgba(0, 0, 0, .2) 0 0 2px",
+        },
+        "contrast-box-active": {
+            boxShadow: "rgb(0, 0, 0) 0 0 4px"
+        },
+        "contrast-toolbar": {
+            position: "fixed",
+            height: ".8rem",
+            lineHeight: ".8rem",
+            display: "-webkit-box",
+            webkitBoxAlign: "center",
+            borderRadius: "4px",
+            overflow: "hidden",
+            zIndex: "100002",
+        },
+        "contrast-toolbar-span": {
+            backgroundColor: "rgba(0, 0, 0, .4)"
+        },
+        "contrast-toolbar-span-active": {
+            backgroundColor: "rgba(33, 150, 243, 1)"
+        },
+        "contrast-compare": {
+            display: "block",
+            backgroundColor: "rgba(0, 0, 0, .4)",
+            backgroundImage: "url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABABAMAAABYR2ztAAAAMFBMVEUAAAD///////////////////////////////////////////////////////////87TQQwAAAAD3RSTlMAQMDwYKAwIBA/0J+AsHC6bjOZAAAA5UlEQVRIx+3VMQ6CQBAF0AkxVhZyAjkFLRyBzlIvYKys1dIjcANKOo/BETyCAZaYaDHGJbvLLrOuiRQU/HLyipnmDwycS5p+ByvE8YJdhCIAHvLUV5CZIRqAJ5ZgT4OHBDcaNBJENKglQA3MfZ47IgnUyROYwN+g+AwXdsD40MutIGkBs4EKWoBLC8gECGlQbwV4nkhQggAYkCBW4EWBBhTAmABBF5R9oBbz+MI9EEIXYNYDSx1UJmCgA8wNkJiA6aACE2ChAaqjhgTuGty4ivToqGJ3mcOBegfrkf2sn8HZ92HwvAEaVf3gbViUKQAAAABJRU5ErkJggg==')",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+            backgroundSize: ".6rem",
+            width: ".8rem",
+            height: ".8rem",
+        },
+
+    }
+
+    function setClass(dom, cssName) {
+        if (cssMap[cssName]) {
+            for (var attr in cssMap[cssName]) {
+                /*attr = attr.replace(/-\w/ig,function($0,$1){
+                return $0.slice(1).toUpperCase();
+                });*/
+                dom.style[attr] = cssMap[cssName][attr];
+            };
+        }
+    }
+
+
     var CLIENT_WIDTH = document.body.clientWidth || document.documentElement.clientWidth,
         CLIENT_HEIGHT = document.body.clientHeight || document.documentElement.clientHeight;
     var Contrast = {
@@ -21,7 +150,7 @@
     var contOption = {
         opacity: 1,
         width: CLIENT_WIDTH / 2,
-        opacity_height:140
+        opacity_height: 140
     };
     var sx, sy, dx, dy; //0:default,1:对比,2:测量
     var contrast = document.createElement("div"),
@@ -33,17 +162,23 @@
         cont_tip_span_drag = document.createElement("span"),
         cont_tip_span_range = document.createElement("span")
     contrast.appendChild(contrast_bg).className = "contrast-bg";
+    setClass(contrast_bg, "contrast-bg");
     contrast.appendChild(cont_range_span).className = "contrast-percentage";
+    setClass(cont_range_span, "contrast-percentage");
     contrast.appendChild(cont_tip_div).className = "contrast-tip";
+    setClass(cont_tip_div, "contrast-tip");
     cont_tip_div.appendChild(cont_tip_span_design).className = "contrast-design";
+    setClass(cont_tip_span_design, "contrast-design");
     cont_tip_span_design.innerText = "左侧为设计稿";
     cont_tip_div.appendChild(cont_tip_span_drag).className = "contrast-drag";
+    setClass(cont_tip_span_drag, "contrast-drag");
     cont_tip_span_drag.innerText = "横向滑动，调整设计稿宽度";
     cont_tip_div.appendChild(cont_tip_span_range).className = "contrast-range";
+    setClass(cont_tip_span_range, "contrast-range");
     cont_tip_span_range.innerText = "底部横向滑动，调整设计稿透明度";
-    
 
     contrast.className = "contrast-box";
+    setClass(contrast, "contrast-box");
     contSet();
 
     function contSet() {
@@ -54,7 +189,7 @@
         cont_range_isMoving = false,
         cont_width_isMoving = false;
     document.addEventListener('touchstart', function(event) {
-        if (toolbarOption.compare.acitve) {
+        if (toolbarOption.compare.active) {
             r_sx = event.touches[0].clientX;
             r_sy = event.touches[0].clientY;
             if (CLIENT_HEIGHT - event.touches[0].clientY < contOption.opacity_height) {
@@ -86,6 +221,7 @@
 
             } else if (cont_width_isMoving) {
                 contrast.className = "contrast-box active";
+                setClass(contrast, "contrast-box-active");
                 // 调整宽度区域
                 contOption.width += r_dx;
                 if (contOption.width > CLIENT_WIDTH) {
@@ -104,76 +240,84 @@
         setTimeout(function() {
             if (!cont_range_isMoving) {
                 cont_range_span.style.opacity = 0;
-
             }
         }, 1400);
         setTimeout(function() {
             if (!cont_width_isMoving) {
                 contrast.className = "contrast-box";
+                setClass(contrast, "contrast-box-inactive");
             }
         }, 600)
     });
-    // 样式
-    // var link = document.createElement('link');
-    // link.rel = "stylesheet";
-    // link.href = "contrast.css";
-    // document.head.appendChild(link);
-
-    // 样式
-    var style = document.createElement('style');
-    style.type="text/css";
-    style.innerHTML = '@-webkit-keyframes fix_iphonex{0%{-webkit-transform:scale3d(1, 1, 1)}100%{-webkit-transform:scale3d(1, 1, 1)}}.bg{width:100%;padding-top:4px}.contrast-bg{width:100%;height:100%;background-size:7.5rem auto;background-repeat:no-repeat;background-position:left top}.contrast-tip{position:fixed;top:0;left:0;right:0;bottom:0;z-index:10000;color:#000;font-size:.4rem}.contrast-tip .contrast-design{position:absolute;top:0;left:0;bottom:0;display:-webkit-box;-webkit-box-align:center;-webkit-box-pack:center;right:50%;text-align:center;background-color:rgba(255,191,0,0.65);-webkit-animation:contrast-an-show 3s linear .1s both}.contrast-tip .contrast-drag{position:absolute;left:0;top:30%;right:0;text-align:center;text-shadow:#FC0 0 0 8px;opacity:0;-webkit-animation:contrast-an-show 3s linear 3.4s both}.contrast-tip .contrast-drag:before{content:"";position:fixed;left:50%;top:0;bottom:0;width:1px;background-color:#F00;box-shadow:#CCC 0 0 3px}.contrast-tip .contrast-range{position:fixed;bottom:0;height:140px;left:0;right:0;display:-webkit-box;-webkit-box-align:center;-webkit-box-pack:center;background-color:rgba(255,191,0,0.65);opacity:0;-webkit-animation:contrast-an-show 3s linear 6.8s both}@-webkit-keyframes contrast-an-show{0%{opacity:0}20%{opacity:1}80%{opacity:1}100%{opacity:0}}@-webkit-keyframes contrast-an-flexible{0%{opacity:1;-webkit-transform:scale(1, 1)}100%{opacity:0;-webkit-transform:scale(2, 1)}}.contrast-box{z-index:10001;position:absolute;display:none;left:0;top:0;box-shadow:rgba(0,0,0,0.2) 0 0 2px;-webkit-transition:box-shadow .3s ease-in}.contrast-box.active{box-shadow:#000 0 0 4px}.contrast-box .contrast-percentage{position:absolute;top:50%;left:0;min-width:100%;text-align:center;background-color:yellow;-webkit-transition:opacity .2s ease-in;white-space:nowrap;font-size:.3rem}.contrast-toolbar{position:fixed;top:50%;left:50%;height:.8rem;line-height:.8rem;display:-webkit-box;-webkit-box-align:center;border-radius:4px;overflow:hidden;z-index:100002;-webkit-transition:-webkit-transform 0.3s cubic-bezier(0.29, 0.68, 0.44, 1.51),opacity 0.3s cubic-bezier(0.29, 0.68, 0.44, 1.51);-webkit-transform:scale(0);opacity:.4}.contrast-toolbar span{background-color:rgba(0,0,0,0.4)}.contrast-toolbar span.active{background-color:#2196f3}.contrast-toolbar.show{opacity:1;-webkit-transform:scale(1)}.contrast-compare{display:block;background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABABAMAAABYR2ztAAAAMFBMVEUAAAD///////////////////////////////////////////////////////////87TQQwAAAAD3RSTlMAQMDwYKAwIBA/0J+AsHC6bjOZAAAA5UlEQVRIx+3VMQ6CQBAF0AkxVhZyAjkFLRyBzlIvYKys1dIjcANKOo/BETyCAZaYaDHGJbvLLrOuiRQU/HLyipnmDwycS5p+ByvE8YJdhCIAHvLUV5CZIRqAJ5ZgT4OHBDcaNBJENKglQA3MfZ47IgnUyROYwN+g+AwXdsD40MutIGkBs4EKWoBLC8gECGlQbwV4nkhQggAYkCBW4EWBBhTAmABBF5R9oBbz+MI9EEIXYNYDSx1UJmCgA8wNkJiA6aACE2ChAaqjhgTuGty4ivToqGJ3mcOBegfrkf2sn8HZ92HwvAEaVf3gbViUKQAAAABJRU5ErkJggg==");background-repeat:no-repeat;background-position:center;background-size:.6rem;width:.8rem;height:.8rem}';
-    document.head.appendChild(style);
 
     // 工具条
     var toolbar = document.createElement("div"),
         tool_compare = document.createElement("span");
     toolbarOption = {
+        x: 60,
+        y: 60,
+        moving: false,
+        hasTouched: false,
         compare: {
             active: false
         }
     }
     document.body.appendChild(toolbar).className = "contrast-toolbar";
+    toolbar.style.bottom = toolbarOption.y + "px"
+    toolbar.style.right = toolbarOption.x + "px"
+    setClass(toolbar, "contrast-toolbar");
     toolbar.appendChild(tool_compare).className = "contrast-compare";
-    // toolbar.appendChild(tool_fullscreen).className = "contrast-fullscreen";
-
-    function toolShow(isShow, x, y) {
-        if (isShow) {
-            toolbar.style.opacity = 1;
-            toolbar.style.webkitTransform = "scale(1)";
-            toolbar.style.left = x + 'px';
-            toolbar.style.top = y + 'px';
-        } else {
-            toolbar.style.left = '-100px'
-            toolbar.style.top = '-100px'
-            toolbar.style.opacity = .4;
-            toolbar.style.webkitTransform = 'scale(0)';
-        }
-    }
-    var t = 0;
-    document.body.addEventListener("touchstart", function(event) {
-        if (Date.now() - t < 320) {
-            toolShow(true, event.touches[0].clientX - 100,
-                event.touches[0].clientY - 50);
-        } else {
-            toolShow(false)
-        }
-        t = Date.now();
+    setClass(tool_compare, "contrast-compare");
+    var t_dx = 0,
+        t_sx, t_sy;
+    toolbar.addEventListener('touchstart', function() {
+        t_sx = event.touches[0].clientX
+        t_sy = event.touches[0].clientY;
+        toolbarOption.hasTouched = true;
     }, true);
-    tool_compare.addEventListener("touchstart", function() {
-        toolbarOption.compare.acitve = !toolbarOption.compare.acitve;
-        if (toolbarOption.compare.acitve) {
-            tool_compare.className = "contrast-compare active";
+    document.addEventListener("touchmove", function(event) {
+        if (toolbarOption.hasTouched) {
+            toolbarOption.moving = true;
+            toolbarOption.x -= event.touches[0].clientX - t_sx;
+            toolbarOption.y -= event.touches[0].clientY - t_sy;
+
+            toolbar.style.bottom = toolbarOption.y + "px";
+            toolbar.style.right = toolbarOption.x + "px";
+
+            t_sx = event.touches[0].clientX;
+            t_sy = event.touches[0].clientY;
+
+            event.preventDefault();
+            event.stopPropagation();
+        }
+    },true);
+    document.addEventListener("touchend",function(){
+        if(toolbarOption.hasTouched){
+            toolbarOption.hasTouched = false;
+        }
+        toolbarOption.moving = false;
+    })
+    tool_compare.addEventListener("touchend", function() {
+        if(toolbarOption.moving){
+            return;
+        }
+        toolbarOption.compare.active = !toolbarOption.compare.active;
+        if (toolbarOption.compare.active) {
+            tool_compare.className = "contrast-toolbar-span active"
+            setClass(tool_compare, "contrast-toolbar-span-active");
             contrast.style.display = "block";
-            toolbarOption.compare.active = true;
-            setTimeout(function(){
-                cont_tip_div.parentNode.removeChild(cont_tip_div);
-            },10000);
+            if (cont_tip_div) {
+                setTimeout(function() {
+                    cont_tip_div.parentNode.removeChild(cont_tip_div);
+                    cont_tip_div = null;
+                }, 10000);
+            }
 
         } else {
-            tool_compare.className = "contrast-compare";
+            tool_compare.className = "contrast-toolbar-span";
+            setClass(tool_compare, "contrast-toolbar-span");
             contrast.style.display = "none";
-            toolbarOption.compare.active = false;
         }
     }, true);
+
 })(window);

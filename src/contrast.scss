@@ -91,18 +91,6 @@
         opacity: 0;
     }
 }
-
-@-webkit-keyframes contrast-an-flexible {
-    0% {
-        opacity: 1;
-        -webkit-transform: scale(1, 1);
-    }
-    100% {
-        opacity: 0;
-        -webkit-transform: scale(2, 1);
-    }
-}
-
 .contrast-box {
     z-index: 10001;
     position: absolute;
@@ -139,18 +127,11 @@
     border-radius: 4px;
     overflow: hidden;
     z-index: 100002;
-    -webkit-transition: -webkit-transform .3s cubic-bezier(0.29, 0.68, 0.44, 1.51), opacity .3s cubic-bezier(0.29, 0.68, 0.44, 1.51);
-    -webkit-transform: scale(0);
-    opacity: .4;
     span {
         background-color: rgba(0, 0, 0, .4);
         &.active {
             background-color: rgba(33, 150, 243, 1);
         }
-    }
-    &.show {
-        opacity: 1;
-        -webkit-transform: scale(1);
     }
 }
 

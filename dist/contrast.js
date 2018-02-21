@@ -1,1 +1,323 @@
-!function(){function t(){c.style.width=i.width+"px",c.style.height=n.height+"px"}function e(t,e,o){t?(x.style.opacity=1,x.style.webkitTransform="scale(1)",x.style.left=e+"px",x.style.top=o+"px"):(x.style.left="-100px",x.style.top="-100px",x.style.opacity=.4,x.style.webkitTransform="scale(0)")}var o=document.body.clientWidth||document.documentElement.clientWidth,a=document.body.clientHeight||document.documentElement.clientHeight,n={setBg:function(t){var e=new Image;e.src=t,e.onload=function(){n.width=o,n.height=e.height*o/e.width,c.style.height=n.height+"px"},s.style.backgroundImage="url("+t+")"},width:0,height:0};window.Contrast=n;var i={opacity:1,width:o/2,opacity_height:140},c=document.createElement("div"),s=document.createElement("div");document.body.appendChild(c);var r=document.createElement("span"),p=document.createElement("div"),l=document.createElement("span"),d=document.createElement("span"),b=document.createElement("span");c.appendChild(s).className="contrast-bg",c.appendChild(r).className="contrast-percentage",c.appendChild(p).className="contrast-tip",p.appendChild(l).className="contrast-design",l.innerText="左侧为设计稿",p.appendChild(d).className="contrast-drag",d.innerText="横向滑动，调整设计稿宽度",p.appendChild(b).className="contrast-range",b.innerText="底部横向滑动，调整设计稿透明度",c.className="contrast-box",t();var h,m,u,g=!1,w=!1;document.addEventListener("touchstart",function(t){toolbarOption.compare.acitve&&(h=t.touches[0].clientX,u=t.touches[0].clientY,a-t.touches[0].clientY<i.opacity_height?(g=!0,r.style.opacity=1):w=!0)},!0),document.addEventListener("touchmove",function(t){Math.abs(t.touches[0].clientX-h)/Math.abs(t.touches[0].clientY-u)>1&&(t.preventDefault(),t.stopPropagation()),toolbarOption.compare.active&&(m=t.touches[0].clientX-h,h=t.touches[0].clientX,g?(i.opacity+=m/o,i.opacity>1?i.opacity=1:i.opacity<0&&(i.opacity=0),r.innerText="设计稿透明度:"+parseInt(100*i.opacity)+"%",s.style.opacity=i.opacity):w&&(c.className="contrast-box active",i.width+=m,i.width>o?i.width=o:i.width<0&&(i.width=0),c.style.width=i.width+"px"))},!0),document.addEventListener("touchend",function(){g=!1,w=!1,setTimeout(function(){g||(r.style.opacity=0)},1400),setTimeout(function(){w||(c.className="contrast-box")},600)});var y=document.createElement("style");y.type="text/css",y.innerHTML='@-webkit-keyframes fix_iphonex{0%{-webkit-transform:scale3d(1, 1, 1)}100%{-webkit-transform:scale3d(1, 1, 1)}}.bg{width:100%;padding-top:4px}.contrast-bg{width:100%;height:100%;background-size:7.5rem auto;background-repeat:no-repeat;background-position:left top}.contrast-tip{position:fixed;top:0;left:0;right:0;bottom:0;z-index:10000;color:#000;font-size:.4rem}.contrast-tip .contrast-design{position:absolute;top:0;left:0;bottom:0;display:-webkit-box;-webkit-box-align:center;-webkit-box-pack:center;right:50%;text-align:center;background-color:rgba(255,191,0,0.65);-webkit-animation:contrast-an-show 3s linear .1s both}.contrast-tip .contrast-drag{position:absolute;left:0;top:30%;right:0;text-align:center;text-shadow:#FC0 0 0 8px;opacity:0;-webkit-animation:contrast-an-show 3s linear 3.4s both}.contrast-tip .contrast-drag:before{content:"";position:fixed;left:50%;top:0;bottom:0;width:1px;background-color:#F00;box-shadow:#CCC 0 0 3px}.contrast-tip .contrast-range{position:fixed;bottom:0;height:140px;left:0;right:0;display:-webkit-box;-webkit-box-align:center;-webkit-box-pack:center;background-color:rgba(255,191,0,0.65);opacity:0;-webkit-animation:contrast-an-show 3s linear 6.8s both}@-webkit-keyframes contrast-an-show{0%{opacity:0}20%{opacity:1}80%{opacity:1}100%{opacity:0}}@-webkit-keyframes contrast-an-flexible{0%{opacity:1;-webkit-transform:scale(1, 1)}100%{opacity:0;-webkit-transform:scale(2, 1)}}.contrast-box{z-index:10001;position:absolute;display:none;left:0;top:0;box-shadow:rgba(0,0,0,0.2) 0 0 2px;-webkit-transition:box-shadow .3s ease-in}.contrast-box.active{box-shadow:#000 0 0 4px}.contrast-box .contrast-percentage{position:absolute;top:50%;left:0;min-width:100%;text-align:center;background-color:yellow;-webkit-transition:opacity .2s ease-in;white-space:nowrap;font-size:.3rem}.contrast-toolbar{position:fixed;top:50%;left:50%;height:.8rem;line-height:.8rem;display:-webkit-box;-webkit-box-align:center;border-radius:4px;overflow:hidden;z-index:100002;-webkit-transition:-webkit-transform 0.3s cubic-bezier(0.29, 0.68, 0.44, 1.51),opacity 0.3s cubic-bezier(0.29, 0.68, 0.44, 1.51);-webkit-transform:scale(0);opacity:.4}.contrast-toolbar span{background-color:rgba(0,0,0,0.4)}.contrast-toolbar span.active{background-color:#2196f3}.contrast-toolbar.show{opacity:1;-webkit-transform:scale(1)}.contrast-compare{display:block;background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABABAMAAABYR2ztAAAAMFBMVEUAAAD///////////////////////////////////////////////////////////87TQQwAAAAD3RSTlMAQMDwYKAwIBA/0J+AsHC6bjOZAAAA5UlEQVRIx+3VMQ6CQBAF0AkxVhZyAjkFLRyBzlIvYKys1dIjcANKOo/BETyCAZaYaDHGJbvLLrOuiRQU/HLyipnmDwycS5p+ByvE8YJdhCIAHvLUV5CZIRqAJ5ZgT4OHBDcaNBJENKglQA3MfZ47IgnUyROYwN+g+AwXdsD40MutIGkBs4EKWoBLC8gECGlQbwV4nkhQggAYkCBW4EWBBhTAmABBF5R9oBbz+MI9EEIXYNYDSx1UJmCgA8wNkJiA6aACE2ChAaqjhgTuGty4ivToqGJ3mcOBegfrkf2sn8HZ92HwvAEaVf3gbViUKQAAAABJRU5ErkJggg==");background-repeat:no-repeat;background-position:center;background-size:.6rem;width:.8rem;height:.8rem}',document.head.appendChild(y);var x=document.createElement("div"),A=document.createElement("span");toolbarOption={compare:{active:!1}},document.body.appendChild(x).className="contrast-toolbar",x.appendChild(A).className="contrast-compare";var k=0;document.body.addEventListener("touchstart",function(t){Date.now()-k<320?e(!0,t.touches[0].clientX-100,t.touches[0].clientY-50):e(!1),k=Date.now()},!0),A.addEventListener("touchstart",function(){toolbarOption.compare.acitve=!toolbarOption.compare.acitve,toolbarOption.compare.acitve?(A.className="contrast-compare active",c.style.display="block",toolbarOption.compare.active=!0,setTimeout(function(){p.parentNode.removeChild(p)},1e4)):(A.className="contrast-compare",c.style.display="none",toolbarOption.compare.active=!1)},!0)}(window);
+(function() {
+    /**
+     * 样式初始化
+     */
+    var style = document.createElement('style');
+    style.type = "text/css";
+    style.innerHTML = '@-webkit-keyframes contrast-an-show{0%{opacity:0}20%{opacity:1}80%{opacity:1}100%{opacity:0}}';
+    document.head.appendChild(style);
+    var cssMap = {
+        "contrast-bg": {
+            width: "100%",
+            height: "100%",
+            backgroundSize: "7.5rem auto",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "left top"
+        },
+        "contrast-tip": {
+            position: "fixed",
+            top: "0",
+            left: "0",
+            right: "0",
+            bottom: "0",
+            zIndex: "10000",
+            color: "#000",
+            fontSize: ".4rem",
+        },
+        "contrast-design": {
+            position: "absolute",
+            top: "0",
+            left: "0",
+            bottom: "0",
+            display: "webkitBox",
+            webkitBoxAlign: "center",
+            webkitBoxPack: "center",
+            right: "50%",
+            textAlign: "center",
+            backgroundColor: "rgba(255, 191, 0, .65)",
+            webkitAnimation: "contrast-an-show 3s linear .1s both",
+        },
+        "contrast-drag": {
+
+            position: "absolute",
+            left: "0",
+            top: "30%",
+            right: "0",
+            textAlign: "center",
+            textShadow: "#FC0 0 0 8px",
+            opacity: "0",
+            webkitAnimation: "contrast-an-show 3s linear 3.4s both",
+        },
+        "contrast-range": {
+            position: "fixed",
+            bottom: "0",
+            height: "140px",
+            left: "0",
+            right: "0",
+            display: "-webkit-box",
+            webkitBoxAlign: "center",
+            webkitBoxPack: "center",
+            backgroundColor: "rgba(255, 191, 0, .65)",
+            opacity: "0",
+            webkitAnimation: "contrast-an-show 3s linear 6.8s both",
+        },
+        "contrast-percentage": {
+            position: "absolute",
+            top: "50%",
+            left: "0",
+            minWidth: "100%",
+            textAlign: "center",
+            backgroundColor: "yellow",
+            webkitTransition: "opacity .2s ease-in",
+            whiteSpace: "nowrap",
+            fontSize: ".3rem",
+        },
+        "contrast-box": {
+            zIndex: "10001",
+            position: "absolute",
+            display: "none",
+            left: "0",
+            top: "0",
+            boxShadow: "rgba(0, 0, 0, .2) 0 0 2px",
+            webkitTransition: "box-shadow .3s ease-in",
+        },
+        "contrast-box-inactive": {
+            boxShadow: "rgba(0, 0, 0, .2) 0 0 2px",
+        },
+        "contrast-box-active": {
+            boxShadow: "rgb(0, 0, 0) 0 0 4px"
+        },
+        "contrast-toolbar": {
+            position: "fixed",
+            height: ".8rem",
+            lineHeight: ".8rem",
+            display: "-webkit-box",
+            webkitBoxAlign: "center",
+            borderRadius: "4px",
+            overflow: "hidden",
+            zIndex: "100002",
+        },
+        "contrast-toolbar-span": {
+            backgroundColor: "rgba(0, 0, 0, .4)"
+        },
+        "contrast-toolbar-span-active": {
+            backgroundColor: "rgba(33, 150, 243, 1)"
+        },
+        "contrast-compare": {
+            display: "block",
+            backgroundColor: "rgba(0, 0, 0, .4)",
+            backgroundImage: "url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABABAMAAABYR2ztAAAAMFBMVEUAAAD///////////////////////////////////////////////////////////87TQQwAAAAD3RSTlMAQMDwYKAwIBA/0J+AsHC6bjOZAAAA5UlEQVRIx+3VMQ6CQBAF0AkxVhZyAjkFLRyBzlIvYKys1dIjcANKOo/BETyCAZaYaDHGJbvLLrOuiRQU/HLyipnmDwycS5p+ByvE8YJdhCIAHvLUV5CZIRqAJ5ZgT4OHBDcaNBJENKglQA3MfZ47IgnUyROYwN+g+AwXdsD40MutIGkBs4EKWoBLC8gECGlQbwV4nkhQggAYkCBW4EWBBhTAmABBF5R9oBbz+MI9EEIXYNYDSx1UJmCgA8wNkJiA6aACE2ChAaqjhgTuGty4ivToqGJ3mcOBegfrkf2sn8HZ92HwvAEaVf3gbViUKQAAAABJRU5ErkJggg==')",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+            backgroundSize: ".6rem",
+            width: ".8rem",
+            height: ".8rem",
+        },
+
+    }
+
+    function setClass(dom, cssName) {
+        if (cssMap[cssName]) {
+            for (var attr in cssMap[cssName]) {
+                /*attr = attr.replace(/-\w/ig,function($0,$1){
+                return $0.slice(1).toUpperCase();
+                });*/
+                dom.style[attr] = cssMap[cssName][attr];
+            };
+        }
+    }
+
+
+    var CLIENT_WIDTH = document.body.clientWidth || document.documentElement.clientWidth,
+        CLIENT_HEIGHT = document.body.clientHeight || document.documentElement.clientHeight;
+    var Contrast = {
+        setBg: function(src) {
+            var img = new Image();
+            img.src = src;
+            img.onload = function() {
+                Contrast.width = CLIENT_WIDTH;
+                Contrast.height = img.height * CLIENT_WIDTH / img.width;
+                contrast.style.height = Contrast.height + 'px';
+            }
+            contrast_bg.style.backgroundImage = "url(" + src + ")";
+        },
+        width: 0,
+        height: 0
+    };
+    window.Contrast = Contrast;
+
+    // 对比
+    var contOption = {
+        opacity: 1,
+        width: CLIENT_WIDTH / 2,
+        opacity_height: 140
+    };
+    var sx, sy, dx, dy; //0:default,1:对比,2:测量
+    var contrast = document.createElement("div"),
+        contrast_bg = document.createElement("div");
+    document.body.appendChild(contrast);
+    var cont_range_span = document.createElement("span"),
+        cont_tip_div = document.createElement("div"),
+        cont_tip_span_design = document.createElement("span"),
+        cont_tip_span_drag = document.createElement("span"),
+        cont_tip_span_range = document.createElement("span")
+    contrast.appendChild(contrast_bg).className = "contrast-bg";
+    setClass(contrast_bg, "contrast-bg");
+    contrast.appendChild(cont_range_span).className = "contrast-percentage";
+    setClass(cont_range_span, "contrast-percentage");
+    contrast.appendChild(cont_tip_div).className = "contrast-tip";
+    setClass(cont_tip_div, "contrast-tip");
+    cont_tip_div.appendChild(cont_tip_span_design).className = "contrast-design";
+    setClass(cont_tip_span_design, "contrast-design");
+    cont_tip_span_design.innerText = "左侧为设计稿";
+    cont_tip_div.appendChild(cont_tip_span_drag).className = "contrast-drag";
+    setClass(cont_tip_span_drag, "contrast-drag");
+    cont_tip_span_drag.innerText = "横向滑动，调整设计稿宽度";
+    cont_tip_div.appendChild(cont_tip_span_range).className = "contrast-range";
+    setClass(cont_tip_span_range, "contrast-range");
+    cont_tip_span_range.innerText = "底部横向滑动，调整设计稿透明度";
+
+    contrast.className = "contrast-box";
+    setClass(contrast, "contrast-box");
+    contSet();
+
+    function contSet() {
+        contrast.style.width = contOption.width + 'px';
+        contrast.style.height = Contrast.height + 'px';
+    }
+    var r_sx, r_dx, r_sy,
+        cont_range_isMoving = false,
+        cont_width_isMoving = false;
+    document.addEventListener('touchstart', function(event) {
+        if (toolbarOption.compare.active) {
+            r_sx = event.touches[0].clientX;
+            r_sy = event.touches[0].clientY;
+            if (CLIENT_HEIGHT - event.touches[0].clientY < contOption.opacity_height) {
+                cont_range_isMoving = true;
+                cont_range_span.style.opacity = 1;
+            } else {
+                cont_width_isMoving = true;
+            }
+        }
+    }, true);
+    document.addEventListener('touchmove', function(event) {
+        if (Math.abs(event.touches[0].clientX - r_sx) / Math.abs(event.touches[0].clientY - r_sy) > 1) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
+        if (toolbarOption.compare.active) {
+            r_dx = event.touches[0].clientX - r_sx;
+            r_sx = event.touches[0].clientX;
+            if (cont_range_isMoving) {
+                // 调整透明度区域
+                contOption.opacity += (r_dx) / CLIENT_WIDTH;
+                if (contOption.opacity > 1) {
+                    contOption.opacity = 1;
+                } else if (contOption.opacity < 0) {
+                    contOption.opacity = 0;
+                }
+                cont_range_span.innerText = "设计稿透明度:" + parseInt(contOption.opacity * 100) + "%";
+                contrast_bg.style.opacity = contOption.opacity;
+
+            } else if (cont_width_isMoving) {
+                contrast.className = "contrast-box active";
+                setClass(contrast, "contrast-box-active");
+                // 调整宽度区域
+                contOption.width += r_dx;
+                if (contOption.width > CLIENT_WIDTH) {
+                    contOption.width = CLIENT_WIDTH
+                } else if (contOption.width < 0) {
+                    contOption.width = 0;
+                }
+                contrast.style.width = contOption.width + 'px';
+
+            }
+        }
+    }, true);
+    document.addEventListener("touchend", function() {
+        cont_range_isMoving = false;
+        cont_width_isMoving = false;
+        setTimeout(function() {
+            if (!cont_range_isMoving) {
+                cont_range_span.style.opacity = 0;
+            }
+        }, 1400);
+        setTimeout(function() {
+            if (!cont_width_isMoving) {
+                contrast.className = "contrast-box";
+                setClass(contrast, "contrast-box-inactive");
+            }
+        }, 600)
+    });
+
+    // 工具条
+    var toolbar = document.createElement("div"),
+        tool_compare = document.createElement("span");
+    toolbarOption = {
+        x: 60,
+        y: 60,
+        moving: false,
+        hasTouched: false,
+        compare: {
+            active: false
+        }
+    }
+    document.body.appendChild(toolbar).className = "contrast-toolbar";
+    toolbar.style.bottom = toolbarOption.y + "px"
+    toolbar.style.right = toolbarOption.x + "px"
+    setClass(toolbar, "contrast-toolbar");
+    toolbar.appendChild(tool_compare).className = "contrast-compare";
+    setClass(tool_compare, "contrast-compare");
+    var t_dx = 0,
+        t_sx, t_sy;
+    toolbar.addEventListener('touchstart', function() {
+        t_sx = event.touches[0].clientX
+        t_sy = event.touches[0].clientY;
+        toolbarOption.hasTouched = true;
+    }, true);
+    document.addEventListener("touchmove", function(event) {
+        if (toolbarOption.hasTouched) {
+            toolbarOption.moving = true;
+            toolbarOption.x -= event.touches[0].clientX - t_sx;
+            toolbarOption.y -= event.touches[0].clientY - t_sy;
+
+            toolbar.style.bottom = toolbarOption.y + "px";
+            toolbar.style.right = toolbarOption.x + "px";
+
+            t_sx = event.touches[0].clientX;
+            t_sy = event.touches[0].clientY;
+
+            event.preventDefault();
+            event.stopPropagation();
+        }
+    },true);
+    document.addEventListener("touchend",function(){
+        if(toolbarOption.hasTouched){
+            toolbarOption.hasTouched = false;
+        }
+        toolbarOption.moving = false;
+    })
+    tool_compare.addEventListener("touchend", function() {
+        if(toolbarOption.moving){
+            return;
+        }
+        toolbarOption.compare.active = !toolbarOption.compare.active;
+        if (toolbarOption.compare.active) {
+            tool_compare.className = "contrast-toolbar-span active"
+            setClass(tool_compare, "contrast-toolbar-span-active");
+            contrast.style.display = "block";
+            if (cont_tip_div) {
+                setTimeout(function() {
+                    cont_tip_div.parentNode.removeChild(cont_tip_div);
+                    cont_tip_div = null;
+                }, 10000);
+            }
+
+        } else {
+            tool_compare.className = "contrast-toolbar-span";
+            setClass(tool_compare, "contrast-toolbar-span");
+            contrast.style.display = "none";
+        }
+    }, true);
+
+})(window);
