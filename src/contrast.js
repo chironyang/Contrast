@@ -29,6 +29,7 @@
             top: "0",
             left: "0",
             bottom: "0",
+            paddingTop:"30px",
             display: "webkitBox",
             webkitBoxAlign: "center",
             webkitBoxPack: "center",
@@ -38,7 +39,6 @@
             webkitAnimation: "contrast-an-show 3s linear .1s both",
         },
         "contrast-drag": {
-
             position: "absolute",
             left: "0",
             top: "30%",
@@ -88,12 +88,14 @@
             boxShadow: "rgb(0, 0, 0) 0 0 4px"
         },
         "contrast-toolbar": {
+            boxShadow: "#BBB 0 2px 8px",
+            borderRadius:"50%",
+            overflow:"hidden",
             position: "fixed",
             height: ".8rem",
             lineHeight: ".8rem",
             display: "-webkit-box",
             webkitBoxAlign: "center",
-            borderRadius: "4px",
             overflow: "hidden",
             zIndex: "100002",
         },
@@ -119,9 +121,7 @@
     function setClass(dom, cssName) {
         if (cssMap[cssName]) {
             for (var attr in cssMap[cssName]) {
-                /*attr = attr.replace(/-\w/ig,function($0,$1){
-                return $0.slice(1).toUpperCase();
-                });*/
+                if (window.isDebug) { dom.className = cssName; }
                 dom.style[attr] = cssMap[cssName][attr];
             };
         }
@@ -161,23 +161,22 @@
         cont_tip_span_design = document.createElement("span"),
         cont_tip_span_drag = document.createElement("span"),
         cont_tip_span_range = document.createElement("span")
-    contrast.appendChild(contrast_bg).className = "contrast-bg";
+    contrast.appendChild(contrast_bg)
     setClass(contrast_bg, "contrast-bg");
-    contrast.appendChild(cont_range_span).className = "contrast-percentage";
+    contrast.appendChild(cont_range_span)
     setClass(cont_range_span, "contrast-percentage");
-    contrast.appendChild(cont_tip_div).className = "contrast-tip";
+    contrast.appendChild(cont_tip_div)
     setClass(cont_tip_div, "contrast-tip");
-    cont_tip_div.appendChild(cont_tip_span_design).className = "contrast-design";
+    cont_tip_div.appendChild(cont_tip_span_design)
     setClass(cont_tip_span_design, "contrast-design");
     cont_tip_span_design.innerText = "左侧为设计稿";
-    cont_tip_div.appendChild(cont_tip_span_drag).className = "contrast-drag";
+    cont_tip_div.appendChild(cont_tip_span_drag)
     setClass(cont_tip_span_drag, "contrast-drag");
     cont_tip_span_drag.innerText = "横向滑动，调整设计稿宽度";
-    cont_tip_div.appendChild(cont_tip_span_range).className = "contrast-range";
+    cont_tip_div.appendChild(cont_tip_span_range)
     setClass(cont_tip_span_range, "contrast-range");
     cont_tip_span_range.innerText = "底部横向滑动，调整设计稿透明度";
 
-    contrast.className = "contrast-box";
     setClass(contrast, "contrast-box");
     contSet();
 
@@ -220,7 +219,6 @@
                 contrast_bg.style.opacity = contOption.opacity;
 
             } else if (cont_width_isMoving) {
-                contrast.className = "contrast-box active";
                 setClass(contrast, "contrast-box-active");
                 // 调整宽度区域
                 contOption.width += r_dx;
@@ -244,7 +242,6 @@
         }, 1400);
         setTimeout(function() {
             if (!cont_width_isMoving) {
-                contrast.className = "contrast-box";
                 setClass(contrast, "contrast-box-inactive");
             }
         }, 600)
@@ -255,18 +252,18 @@
         tool_compare = document.createElement("span");
     toolbarOption = {
         x: 60,
-        y: 60,
+        y: 100,
         moving: false,
         hasTouched: false,
         compare: {
             active: false
         }
     }
-    document.body.appendChild(toolbar).className = "contrast-toolbar";
+    document.body.appendChild(toolbar);
     toolbar.style.bottom = toolbarOption.y + "px"
     toolbar.style.right = toolbarOption.x + "px"
     setClass(toolbar, "contrast-toolbar");
-    toolbar.appendChild(tool_compare).className = "contrast-compare";
+    toolbar.appendChild(tool_compare);
     setClass(tool_compare, "contrast-compare");
     var t_dx = 0,
         t_sx, t_sy;
@@ -290,20 +287,19 @@
             event.preventDefault();
             event.stopPropagation();
         }
-    },true);
-    document.addEventListener("touchend",function(){
-        if(toolbarOption.hasTouched){
+    }, true);
+    document.addEventListener("touchend", function() {
+        if (toolbarOption.hasTouched) {
             toolbarOption.hasTouched = false;
         }
         toolbarOption.moving = false;
     })
     tool_compare.addEventListener("touchend", function() {
-        if(toolbarOption.moving){
+        if (toolbarOption.moving) {
             return;
         }
         toolbarOption.compare.active = !toolbarOption.compare.active;
         if (toolbarOption.compare.active) {
-            tool_compare.className = "contrast-toolbar-span active"
             setClass(tool_compare, "contrast-toolbar-span-active");
             contrast.style.display = "block";
             if (cont_tip_div) {
@@ -314,10 +310,9 @@
             }
 
         } else {
-            tool_compare.className = "contrast-toolbar-span";
             setClass(tool_compare, "contrast-toolbar-span");
             contrast.style.display = "none";
         }
     }, true);
 
-})(window);
+})();
