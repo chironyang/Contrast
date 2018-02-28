@@ -7,117 +7,117 @@
     style.innerHTML = '@-webkit-keyframes contrast-an-show{0%{opacity:0}20%{opacity:1}80%{opacity:1}100%{opacity:0}}';
     document.head.appendChild(style);
     var cssMap = {
-        "contrast-bg": {
-            width: "100%",
-            height: "100%",
-            backgroundSize: "7.5rem auto",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "left top"
-        },
-        "contrast-tip": {
-            position: "fixed",
-            top: "0",
-            left: "0",
-            right: "0",
-            bottom: "0",
-            zIndex: "10000",
-            color: "#000",
-            fontSize: ".4rem",
-        },
-        "contrast-design": {
-            position: "absolute",
-            top: "0",
-            left: "0",
-            bottom: "0",
-            paddingTop:"30px",
-            display: "webkitBox",
-            webkitBoxAlign: "center",
-            webkitBoxPack: "center",
-            right: "50%",
-            textAlign: "center",
-            backgroundColor: "rgba(255, 191, 0, .65)",
-            webkitAnimation: "contrast-an-show 3s linear .1s both",
-        },
-        "contrast-drag": {
-            position: "absolute",
-            left: "0",
-            top: "30%",
-            right: "0",
-            textAlign: "center",
-            textShadow: "#FC0 0 0 8px",
-            opacity: "0",
-            webkitAnimation: "contrast-an-show 3s linear 3.4s both",
-        },
-        "contrast-range": {
-            position: "fixed",
-            bottom: "0",
-            height: "140px",
-            left: "0",
-            right: "0",
-            display: "-webkit-box",
-            webkitBoxAlign: "center",
-            webkitBoxPack: "center",
-            backgroundColor: "rgba(255, 191, 0, .65)",
-            opacity: "0",
-            webkitAnimation: "contrast-an-show 3s linear 6.8s both",
-        },
-        "contrast-percentage": {
-            position: "absolute",
-            top: "50%",
-            left: "0",
-            minWidth: "100%",
-            textAlign: "center",
-            backgroundColor: "yellow",
-            webkitTransition: "opacity .2s ease-in",
-            whiteSpace: "nowrap",
-            fontSize: ".3rem",
-        },
-        "contrast-box": {
-            zIndex: "10001",
-            position: "absolute",
-            display: "none",
-            left: "0",
-            top: "0",
-            boxShadow: "rgba(0, 0, 0, .2) 0 0 2px",
-            webkitTransition: "box-shadow .3s ease-in",
-        },
-        "contrast-box-inactive": {
-            boxShadow: "rgba(0, 0, 0, .2) 0 0 2px",
-        },
-        "contrast-box-active": {
-            boxShadow: "rgb(0, 0, 0) 0 0 4px"
-        },
-        "contrast-toolbar": {
-            boxShadow: "#BBB 0 2px 8px",
-            borderRadius:"50%",
-            overflow:"hidden",
-            position: "fixed",
-            height: ".8rem",
-            lineHeight: ".8rem",
-            display: "-webkit-box",
-            webkitBoxAlign: "center",
-            overflow: "hidden",
-            zIndex: "100002",
-        },
-        "contrast-toolbar-span": {
-            backgroundColor: "rgba(0, 0, 0, .4)"
-        },
-        "contrast-toolbar-span-active": {
-            backgroundColor: "rgba(33, 150, 243, 1)"
-        },
-        "contrast-compare": {
-            display: "block",
-            backgroundColor: "rgba(0, 0, 0, .4)",
-            backgroundImage: "url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABABAMAAABYR2ztAAAAMFBMVEUAAAD///////////////////////////////////////////////////////////87TQQwAAAAD3RSTlMAQMDwYKAwIBA/0J+AsHC6bjOZAAAA5UlEQVRIx+3VMQ6CQBAF0AkxVhZyAjkFLRyBzlIvYKys1dIjcANKOo/BETyCAZaYaDHGJbvLLrOuiRQU/HLyipnmDwycS5p+ByvE8YJdhCIAHvLUV5CZIRqAJ5ZgT4OHBDcaNBJENKglQA3MfZ47IgnUyROYwN+g+AwXdsD40MutIGkBs4EKWoBLC8gECGlQbwV4nkhQggAYkCBW4EWBBhTAmABBF5R9oBbz+MI9EEIXYNYDSx1UJmCgA8wNkJiA6aACE2ChAaqjhgTuGty4ivToqGJ3mcOBegfrkf2sn8HZ92HwvAEaVf3gbViUKQAAAABJRU5ErkJggg==')",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "center",
-            backgroundSize: ".6rem",
-            width: ".8rem",
-            height: ".8rem",
-        },
+            "contrast-bg": {
+                width: "100%",
+                height: "100%",
+                backgroundSize: "7.5rem auto",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "left top"
+            },
+            "contrast-tip": {
+                position: "fixed",
+                top: "0",
+                left: "0",
+                right: "0",
+                bottom: "0",
+                zIndex: "10000",
+                color: "#000",
+                fontSize: ".4rem",
+            },
+            "contrast-design": {
+                position: "absolute",
+                top: "0",
+                left: "0",
+                bottom: "0",
+                paddingTop: "30px",
+                display: "webkitBox",
+                webkitBoxAlign: "center",
+                webkitBoxPack: "center",
+                right: "50%",
+                textAlign: "center",
+                backgroundColor: "rgba(255, 191, 0, .65)",
+                webkitAnimation: "contrast-an-show 3s linear .1s both",
+            },
+            "contrast-drag": {
+                position: "absolute",
+                left: "0",
+                top: "30%",
+                right: "0",
+                textAlign: "center",
+                textShadow: "#FC0 0 0 8px",
+                opacity: "0",
+                webkitAnimation: "contrast-an-show 3s linear 3.4s both",
+            },
+            "contrast-range": {
+                position: "fixed",
+                bottom: "0",
+                height: "140px",
+                left: "0",
+                right: "0",
+                display: "-webkit-box",
+                webkitBoxAlign: "center",
+                webkitBoxPack: "center",
+                backgroundColor: "rgba(255, 191, 0, .65)",
+                opacity: "0",
+                webkitAnimation: "contrast-an-show 3s linear 6.8s both",
+            },
+            "contrast-percentage": {
+                position: "absolute",
+                top: "50%",
+                left: "0",
+                minWidth: "100%",
+                textAlign: "center",
+                backgroundColor: "yellow",
+                webkitTransition: "opacity .2s ease-in",
+                whiteSpace: "nowrap",
+                fontSize: ".3rem",
+            },
+            "contrast-box": {
+                zIndex: "10001",
+                position: "absolute",
+                display: "none",
+                left: "0",
+                top: "0",
+                boxShadow: "rgba(0, 0, 0, .2) 0 0 2px",
+                webkitTransition: "box-shadow .3s ease-in",
+            },
+            "contrast-box-inactive": {
+                boxShadow: "rgba(0, 0, 0, .2) 0 0 2px",
+            },
+            "contrast-box-active": {
+                boxShadow: "rgb(0, 0, 0) 0 0 4px"
+            },
+            "contrast-toolbar": {
+                boxShadow: "#BBB 0 2px 8px",
+                borderRadius: "50%",
+                overflow: "hidden",
+                position: "fixed",
+                height: ".8rem",
+                lineHeight: ".8rem",
+                display: "-webkit-box",
+                webkitBoxAlign: "center",
+                overflow: "hidden",
+                zIndex: "100002",
+            },
+            "contrast-toolbar-span": {
+                backgroundColor: "rgba(0, 0, 0, .4)"
+            },
+            "contrast-toolbar-span-active": {
+                backgroundColor: "rgba(33, 150, 243, 1)"
+            },
+            "contrast-compare": {
+                display: "block",
+                backgroundColor: "rgba(0, 0, 0, .4)",
+                backgroundImage: "url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABABAMAAABYR2ztAAAAMFBMVEUAAAD///////////////////////////////////////////////////////////87TQQwAAAAD3RSTlMAQMDwYKAwIBA/0J+AsHC6bjOZAAAA5UlEQVRIx+3VMQ6CQBAF0AkxVhZyAjkFLRyBzlIvYKys1dIjcANKOo/BETyCAZaYaDHGJbvLLrOuiRQU/HLyipnmDwycS5p+ByvE8YJdhCIAHvLUV5CZIRqAJ5ZgT4OHBDcaNBJENKglQA3MfZ47IgnUyROYwN+g+AwXdsD40MutIGkBs4EKWoBLC8gECGlQbwV4nkhQggAYkCBW4EWBBhTAmABBF5R9oBbz+MI9EEIXYNYDSx1UJmCgA8wNkJiA6aACE2ChAaqjhgTuGty4ivToqGJ3mcOBegfrkf2sn8HZ92HwvAEaVf3gbViUKQAAAABJRU5ErkJggg==')",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center",
+                backgroundSize: ".6rem",
+                width: ".8rem",
+                height: ".8rem",
+            },
 
-    }
-
+        }
+        // 设置样式
     function setClass(dom, cssName) {
         if (cssMap[cssName]) {
             for (var attr in cssMap[cssName]) {
@@ -130,6 +130,8 @@
 
     var CLIENT_WIDTH = document.body.clientWidth || document.documentElement.clientWidth,
         CLIENT_HEIGHT = document.body.clientHeight || document.documentElement.clientHeight;
+    
+    // 工具对象
     var Contrast = {
         setBg: function(src) {
             var img = new Image();
@@ -146,44 +148,57 @@
     };
     window.Contrast = Contrast;
 
-    // 对比
+    // 对比参赛
     var contOption = {
         opacity: 1,
         width: CLIENT_WIDTH / 2,
         opacity_height: 140
     };
-    var sx, sy, dx, dy; //0:default,1:对比,2:测量
+    // 添加对比界面
     var contrast = document.createElement("div"),
         contrast_bg = document.createElement("div");
     document.body.appendChild(contrast);
-    var cont_range_span = document.createElement("span"),
-        cont_tip_div = document.createElement("div"),
-        cont_tip_span_design = document.createElement("span"),
-        cont_tip_span_drag = document.createElement("span"),
-        cont_tip_span_range = document.createElement("span")
-    contrast.appendChild(contrast_bg)
+    var cont_range_span = document.createElement("span");
+    contrast.appendChild(contrast_bg);
     setClass(contrast_bg, "contrast-bg");
     contrast.appendChild(cont_range_span)
     setClass(cont_range_span, "contrast-percentage");
-    contrast.appendChild(cont_tip_div)
-    setClass(cont_tip_div, "contrast-tip");
-    cont_tip_div.appendChild(cont_tip_span_design)
-    setClass(cont_tip_span_design, "contrast-design");
-    cont_tip_span_design.innerText = "左侧为设计稿";
-    cont_tip_div.appendChild(cont_tip_span_drag)
-    setClass(cont_tip_span_drag, "contrast-drag");
-    cont_tip_span_drag.innerText = "横向滑动，调整设计稿宽度";
-    cont_tip_div.appendChild(cont_tip_span_range)
-    setClass(cont_tip_span_range, "contrast-range");
-    cont_tip_span_range.innerText = "底部横向滑动，调整设计稿透明度";
-
     setClass(contrast, "contrast-box");
     contSet();
+    // 引导界面
+    var hasGuide = document.cookie.search(/\bcontrastjs\b/) < 0;
+    if(hasGuide){
+        // 设置超时:1天
+        // document.cookie = "contrastjs;expires=" + new Date(Date.now() + 3600000*24).toGMTString();
+        document.cookie = "contrastjs";
+        // 添加引导界面
+        var cont_tip_div = document.createElement("div"),
+            cont_tip_span_design = document.createElement("span"),
+            cont_tip_span_drag = document.createElement("span"),
+            cont_tip_span_range = document.createElement("span")
+        contrast.appendChild(cont_tip_div)
+        setClass(cont_tip_div, "contrast-tip");
+
+        cont_tip_div.appendChild(cont_tip_span_design)
+        cont_tip_span_design.innerText = "左侧为设计稿";
+        setClass(cont_tip_span_design, "contrast-design");
+
+        cont_tip_div.appendChild(cont_tip_span_drag)
+        cont_tip_span_drag.innerText = "横向滑动，调整设计稿宽度";
+        setClass(cont_tip_span_drag, "contrast-drag");
+
+        cont_tip_div.appendChild(cont_tip_span_range)
+        cont_tip_span_range.innerText = "底部横向滑动，调整设计稿透明度";
+        setClass(cont_tip_span_range, "contrast-range");
+    }
 
     function contSet() {
         contrast.style.width = contOption.width + 'px';
         contrast.style.height = Contrast.height + 'px';
     }
+    /**
+     * 事件绑定
+     */
     var r_sx, r_dx, r_sy,
         cont_range_isMoving = false,
         cont_width_isMoving = false;
@@ -247,9 +262,13 @@
         }, 600)
     });
 
-    // 工具条
+    /**
+     * 工具条
+     */
     var toolbar = document.createElement("div"),
         tool_compare = document.createElement("span");
+    document.body.appendChild(toolbar);
+    toolbar.appendChild(tool_compare);
     toolbarOption = {
         x: 60,
         y: 100,
@@ -259,11 +278,13 @@
             active: false
         }
     }
-    document.body.appendChild(toolbar);
-    toolbar.style.bottom = toolbarOption.y + "px"
-    toolbar.style.right = toolbarOption.x + "px"
+
+    function toolSet() {
+        toolbar.style.bottom = toolbarOption.y + "px";
+        toolbar.style.right = toolbarOption.x + "px";
+    }
+    toolSet();
     setClass(toolbar, "contrast-toolbar");
-    toolbar.appendChild(tool_compare);
     setClass(tool_compare, "contrast-compare");
     var t_dx = 0,
         t_sx, t_sy;
@@ -278,8 +299,7 @@
             toolbarOption.x -= event.touches[0].clientX - t_sx;
             toolbarOption.y -= event.touches[0].clientY - t_sy;
 
-            toolbar.style.bottom = toolbarOption.y + "px";
-            toolbar.style.right = toolbarOption.x + "px";
+            toolSet();
 
             t_sx = event.touches[0].clientX;
             t_sy = event.touches[0].clientY;
