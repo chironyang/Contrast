@@ -1,78 +1,42 @@
 <!DOCTYPE html>
-<html data-use-rem="750">
-  <head>
+<html lang="en" data-use-rem>
+<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
     <meta content="telephone=no" name="format-detection">
-    <title>运动</title>
-    <link rel="stylesheet" href="examine.css">
-    <body>
-      <!-- .nonsupport:不支持记步，使用该状态样式-->
-      <!-- .checking: 检测状态-->
-      <div class="main">
-        <!-- 通栏，通过样式【.ios】【.android】【.iphonex】调整通栏高度-->
-        <div class="nav-bar ios">
-          <div class="left">
-            <div class="back">返回</div>
-          </div>
-          <div class="center">
-            <div class="title">步数检测</div>
-          </div>
-          <div class="right"></div>
+    <title>转换页面</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/translate.css">
+</head>
+<body ontouchstart>
+<script src="js/rem.min.js"></script>
+<div class="nav-bar"></div>
+<div class="article-container">
+    <div class="title">徕卡M10 | 经典与现代的邂逅，经典存留，与时俱进</div>
+    <div class="info">
+        <div class="author-panel">
+            <div class="avatar" style="background-image: url(#)"></div>
+            <div class="author">爱范儿</div>
         </div>
-        <!--.show:现隐-->
-        <div class="nav-foot-bar show">
-          <div class="inner">
-            <div class="logo"></div>
-            <div class="txt">查看运动数据。</div>
-            <div class="btn">关注</div>
-          </div>
+
+        <div class="time-read-panel">
+            <div class="publish-date">02-16</div>
+            <div class="read-num">阅读&nbsp;4391</div>
         </div>
-        <div class="contain">
-          <div class="loading">
-            <!--.running:圈圈转动-->
-            <div class="ring running">正在检测</div>
-          </div>
-          <div class="banner">
-            <div class="info">
-              <div class="text">今日步数</div>
-              <div class="num">2048</div>
-              <div class="sub">此步数异常</div>
-            </div>
-            <div class="info none">
-              <div class="error">无运动数据</div>
-            </div>
-            <div class="row">
-              <label class="label">设备信息</label><span class="val">iPhone 6s Plus</span>
-            </div>
-            <div class="row">
-              <label class="label">系统版本</label><span class="val">IOS 11</span>
-            </div>
-            <div class="row">
-              <label class="label">版本</label><span class="val">v7.3.5</span>
-            </div>
-          </div>
-          <div class="question">
-            <div class="title">热点问题</div>
-            <ul>
-              <!--.extend: 展开问题答案-->
-              <li class="">
-                <div class="head"><span>我觉得步数统计偏少</span><i></i></div>
-              </li>
-              <li>
-                <div class="head"><span>根微信火其他运动APP不一致</span><i>未开启</i></div>
-              </li>
-              <li>
-                <div class="head"><span>第三方运动APP数据没同步</span><i class="done">已开启</i></div>
-              </li>
-            </ul>
-          </div>
+    </div>
+    <div class="article-content">
+        <div class="content">记得上个月我还沉浸在与富士 GFX-50s 中画幅「交流」的时候，让人惊喜的另一件事情便是徕卡发布了 M10 旁轴数码相机，作为徕卡经典的 M
+            系列新机型自然是备受关注。更让人兴奋的是，昨天#数字尾巴编辑部#收到了
+            Leica M10 的样机，在详细体验之前，不妨先来看看这台 Leica M10 的一些细节！
         </div>
-      </div>
-    <script type="text/javascript" src="grid-inhead.js"></script>
-    <script type="text/javascript" src="../src/contrast.js"></script>
-    <script type="text/javascript">
-        Contrast.setBg("img/s.png");
-    </script>
+        <div class="img" style="background-image: url(img/article-img.png)"/>
+    </div>
+</div>
+<script src="js/contrast.js"></script>
+<script>
+    Contrast.setBg("img/source.png");
+</script>
+</body>
 </html>
