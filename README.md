@@ -3,7 +3,7 @@
 Contrast.js插件主要用于检验移动端Web重构还原度，由于大部分设计稿是基于iPhone6以上（1334 x 750）设计的，所以该插件比较适合用iPhone6、iPhone7、iPhone8检查设计还原情况。
 
 ## Demo
-地址: [https://coderjunb.github.io/HTML-contrast/demo/index.html](https://coderjunb.github.io/HTML-contrast/demo/index.html)
+地址: [https://coderjunb.github.io/HTML-contrast/demo/index.html](https://coderjunb.github.io/contrast/demo/index.html)
 
 ## 引入插件
 1. 准备好需要验证的设计稿，如bg.png
