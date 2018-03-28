@@ -64,10 +64,12 @@
             "contrast-percentage": {
                 position: "absolute",
                 top: "50%",
-                left: "0",
-                minWidth: "100%",
+                left: "50%",
+                marginLeft: "-2em",
+                padding: "0 4px",
                 textAlign: "center",
-                backgroundColor: "yellow",
+                backgroundColor: "rgba(255, 235, 59,1)",
+                color: "#000",
                 webkitTransition: "opacity .2s ease-in",
                 whiteSpace: "nowrap",
                 fontSize: ".3rem",
@@ -79,6 +81,7 @@
                 left: "0",
                 top: "0",
                 boxShadow: "rgba(0, 0, 0, .2) 0 0 2px",
+                pointerEvents: "none",
                 webkitTransition: "box-shadow .3s ease-in",
             },
             "contrast-box-inactive": {
@@ -130,7 +133,7 @@
 
     var CLIENT_WIDTH = document.body.clientWidth || document.documentElement.clientWidth,
         CLIENT_HEIGHT = document.body.clientHeight || document.documentElement.clientHeight;
-    
+
     // 工具对象
     var Contrast = {
         setBg: function(src) {
@@ -148,10 +151,16 @@
     };
     window.Contrast = Contrast;
 
+
+    var local_opacity = localStorage.getItem("contrastjs_opacity"),
+        local_width = localStorage.getItem("contrastjs_width");
+
+
+
     // 对比参赛
     var contOption = {
-        opacity: 1,
-        width: CLIENT_WIDTH / 2,
+        opacity: Number(local_opacity) || 1,
+        width: Number(local_width) || CLIENT_WIDTH / 2,
         opacity_height: 140
     };
     // 添加对比界面
@@ -166,11 +175,8 @@
     setClass(contrast, "contrast-box");
     contSet();
     // 引导界面
-    var hasGuide = document.cookie.search(/\bcontrastjs\b/) < 0;
-    if(hasGuide){
-        // 设置超时:1天
-        // document.cookie = "contrastjs;expires=" + new Date(Date.now() + 3600000*24).toGMTString();
-        document.cookie = "contrastjs";
+    if (local_opacity == undefined) {
+        localStorage.setItem("contrastjs_width", contOption.width);
         // 添加引导界面
         var cont_tip_div = document.createElement("div"),
             cont_tip_span_design = document.createElement("span"),
@@ -230,8 +236,9 @@
                 } else if (contOption.opacity < 0) {
                     contOption.opacity = 0;
                 }
-                cont_range_span.innerText = "设计稿透明度:" + parseInt(contOption.opacity * 100) + "%";
+                cont_range_span.innerText = parseInt(contOption.opacity * 100) + "%";
                 contrast_bg.style.opacity = contOption.opacity;
+                localStorage.setItem("contrastjs_opacity", contOption.opacity);
 
             } else if (cont_width_isMoving) {
                 setClass(contrast, "contrast-box-active");
@@ -243,6 +250,7 @@
                     contOption.width = 0;
                 }
                 contrast.style.width = contOption.width + 'px';
+                localStorage.setItem("contrastjs_width", contOption.width);
 
             }
         }
@@ -254,12 +262,12 @@
             if (!cont_range_isMoving) {
                 cont_range_span.style.opacity = 0;
             }
-        }, 1400);
+        }, 200);
         setTimeout(function() {
             if (!cont_width_isMoving) {
                 setClass(contrast, "contrast-box-inactive");
             }
-        }, 600)
+        }, 200)
     });
 
     /**
