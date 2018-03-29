@@ -63,7 +63,7 @@
             },
             "contrast-percentage": {
                 position: "absolute",
-                top: "50%",
+                top: "300px",
                 left: "50%",
                 marginLeft: "-2em",
                 padding: "0 4px",
