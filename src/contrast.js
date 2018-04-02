@@ -175,7 +175,7 @@
     setClass(contrast, "contrast-box");
     contSet();
     // 引导界面
-    if (local_opacity == undefined) {
+    if (local_width == undefined) {
         localStorage.setItem("contrastjs_width", contOption.width);
         // 添加引导界面
         var cont_tip_div = document.createElement("div"),
