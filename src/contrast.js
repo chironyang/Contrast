@@ -10,7 +10,7 @@
             "contrast-bg": {
                 width: "100%",
                 height: "100%",
-                backgroundSize: "7.5rem auto",
+                backgroundSize: "100vw auto",
                 backgroundRepeat: "no-repeat",
                 backgroundPosition: "left top"
             },
@@ -22,7 +22,7 @@
                 bottom: "0",
                 zIndex: "10000",
                 color: "#000",
-                fontSize: ".4rem",
+                fontSize: "5vw",
             },
             "contrast-design": {
                 position: "absolute",
@@ -72,7 +72,7 @@
                 color: "#000",
                 webkitTransition: "opacity .2s ease-in",
                 whiteSpace: "nowrap",
-                fontSize: ".3rem",
+                fontSize: "4vw",
             },
             "contrast-box": {
                 zIndex: "10001",
@@ -95,8 +95,8 @@
                 borderRadius: "50%",
                 overflow: "hidden",
                 position: "fixed",
-                height: ".8rem",
-                lineHeight: ".8rem",
+                height: "10vw",
+                lineHeight: "10vw",
                 display: "-webkit-box",
                 webkitBoxAlign: "center",
                 overflow: "hidden",
@@ -114,9 +114,9 @@
                 backgroundImage: "url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABABAMAAABYR2ztAAAAMFBMVEUAAAD///////////////////////////////////////////////////////////87TQQwAAAAD3RSTlMAQMDwYKAwIBA/0J+AsHC6bjOZAAAA5UlEQVRIx+3VMQ6CQBAF0AkxVhZyAjkFLRyBzlIvYKys1dIjcANKOo/BETyCAZaYaDHGJbvLLrOuiRQU/HLyipnmDwycS5p+ByvE8YJdhCIAHvLUV5CZIRqAJ5ZgT4OHBDcaNBJENKglQA3MfZ47IgnUyROYwN+g+AwXdsD40MutIGkBs4EKWoBLC8gECGlQbwV4nkhQggAYkCBW4EWBBhTAmABBF5R9oBbz+MI9EEIXYNYDSx1UJmCgA8wNkJiA6aACE2ChAaqjhgTuGty4ivToqGJ3mcOBegfrkf2sn8HZ92HwvAEaVf3gbViUKQAAAABJRU5ErkJggg==')",
                 backgroundRepeat: "no-repeat",
                 backgroundPosition: "center",
-                backgroundSize: ".6rem",
-                width: ".8rem",
-                height: ".8rem",
+                backgroundSize: "8vw",
+                width: "10vw",
+                height: "10vw",
             },
 
         }
