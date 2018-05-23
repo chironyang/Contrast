@@ -1,11 +1,11 @@
 # Contrast.js
-## 简介
+# 简介
 Contrast.js插件主要用于检验移动端Web重构还原度，由于大部分设计稿是基于iPhone6以上（1334 x 750）设计的，所以该插件比较适合用iPhone6、iPhone7、iPhone8检查设计还原情况。
 
-## Demo
+# Demo
 地址: [https://coderjunb.github.io/Contrast/demo/index.html](https://coderjunb.github.io/Contrast/demo/index.html)
 
-## 引入插件
+# 引入插件
 1. 准备好需要验证的设计稿，如bg.png
 2. 在重构稿中引入工具脚本contrast.js 并设置图片路径 
         <script>
@@ -13,7 +13,27 @@ Contrast.js插件主要用于检验移动端Web重构还原度，由于大部分
         </script>
 3. 访问重构稿页面
 
-## 操作使用
+# API
+## Contrast.setBg(source[,option])
+
+* 参数：
+    * {String} source   设置设计稿作为背景图，为当前页面路径下的图片路径
+    * {Object} option   设置设计稿其他选项
+        * {Bool | Number} option.hideBar 是否隐藏设计稿中的菜单栏，默认为`false`。如果为`true`，默认隐藏高度为设计稿（750x1334）中的`128px`，同时可自定义其他高度，以设计稿为准。
+* 使用：
+
+    ```
+        // 默认设置设计稿为背景图
+        Contrast.setBg("bg.png");
+    ```
+    ```
+        // 通过设置hideBar隐藏设计稿任务栏
+        Contrast.setBg("bg.png",{
+            hideBar:true
+        });
+    ```
+
+# 操作使用
 开启工具：点击“工具按钮”，插件展示操作引导（第一次加载才显示引导）；
 
 关闭工具：点击“工具按钮”，插件隐藏；
@@ -24,7 +44,7 @@ Contrast.js插件主要用于检验移动端Web重构还原度，由于大部分
 
 调整工具位置：拖拽“工具按钮”到要调整到位置；
 
-## 其他问题
+# 其他问题
 
 1) _有没有设计稿背景规格？_
 
