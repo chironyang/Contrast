@@ -7,120 +7,123 @@
     style.innerHTML = '@-webkit-keyframes contrast-an-show{0%{opacity:0}20%{opacity:1}80%{opacity:1}100%{opacity:0}}';
     document.head.appendChild(style);
     var cssMap = {
-            "contrast-bg": {
-                width: "100%",
-                height: "100%",
-                backgroundSize: "100vw auto",
-                backgroundRepeat: "no-repeat",
-                backgroundPosition: "left top"
-            },
-            "contrast-tip": {
-                position: "fixed",
-                top: "0",
-                left: "0",
-                right: "0",
-                bottom: "0",
-                zIndex: "10000",
-                color: "#000",
-                fontSize: "5vw",
-            },
-            "contrast-design": {
-                position: "absolute",
-                top: "0",
-                left: "0",
-                bottom: "0",
-                paddingTop: "30px",
-                display: "webkitBox",
-                webkitBoxAlign: "center",
-                webkitBoxPack: "center",
-                right: "50%",
-                textAlign: "center",
-                backgroundColor: "rgba(255, 191, 0, .65)",
-                webkitAnimation: "contrast-an-show 3s linear .1s both",
-            },
-            "contrast-drag": {
-                position: "absolute",
-                left: "0",
-                top: "30%",
-                right: "0",
-                textAlign: "center",
-                textShadow: "#FC0 0 0 8px",
-                opacity: "0",
-                webkitAnimation: "contrast-an-show 3s linear 3.4s both",
-            },
-            "contrast-range": {
-                position: "fixed",
-                bottom: "0",
-                height: "140px",
-                left: "0",
-                right: "0",
-                display: "-webkit-box",
-                webkitBoxAlign: "center",
-                webkitBoxPack: "center",
-                backgroundColor: "rgba(255, 191, 0, .65)",
-                opacity: "0",
-                webkitAnimation: "contrast-an-show 3s linear 6.8s both",
-            },
-            "contrast-percentage": {
-                position: "absolute",
-                top: "300px",
-                left: "50%",
-                marginLeft: "-2em",
-                padding: "0 4px",
-                textAlign: "center",
-                backgroundColor: "rgba(255, 235, 59,1)",
-                color: "#000",
-                webkitTransition: "opacity .2s ease-in",
-                whiteSpace: "nowrap",
-                fontSize: "4vw",
-            },
-            "contrast-box": {
-                zIndex: "10001",
-                position: "absolute",
-                display: "none",
-                left: "0",
-                top: "0",
-                boxShadow: "rgba(0, 0, 0, .2) 0 0 2px",
-                pointerEvents: "none",
-                webkitTransition: "box-shadow .3s ease-in",
-            },
-            "contrast-box-inactive": {
-                boxShadow: "rgba(0, 0, 0, .2) 0 0 2px",
-            },
-            "contrast-box-active": {
-                boxShadow: "rgb(0, 0, 0) 0 0 4px"
-            },
-            "contrast-toolbar": {
-                boxShadow: "#BBB 0 2px 8px",
-                borderRadius: "50%",
-                overflow: "hidden",
-                position: "fixed",
-                height: "10vw",
-                lineHeight: "10vw",
-                display: "-webkit-box",
-                webkitBoxAlign: "center",
-                overflow: "hidden",
-                zIndex: "100002",
-            },
-            "contrast-toolbar-span": {
-                backgroundColor: "rgba(0, 0, 0, .4)"
-            },
-            "contrast-toolbar-span-active": {
-                backgroundColor: "rgba(33, 150, 243, 1)"
-            },
-            "contrast-compare": {
-                display: "block",
-                backgroundColor: "rgba(0, 0, 0, .4)",
-                backgroundImage: "url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABABAMAAABYR2ztAAAAMFBMVEUAAAD///////////////////////////////////////////////////////////87TQQwAAAAD3RSTlMAQMDwYKAwIBA/0J+AsHC6bjOZAAAA5UlEQVRIx+3VMQ6CQBAF0AkxVhZyAjkFLRyBzlIvYKys1dIjcANKOo/BETyCAZaYaDHGJbvLLrOuiRQU/HLyipnmDwycS5p+ByvE8YJdhCIAHvLUV5CZIRqAJ5ZgT4OHBDcaNBJENKglQA3MfZ47IgnUyROYwN+g+AwXdsD40MutIGkBs4EKWoBLC8gECGlQbwV4nkhQggAYkCBW4EWBBhTAmABBF5R9oBbz+MI9EEIXYNYDSx1UJmCgA8wNkJiA6aACE2ChAaqjhgTuGty4ivToqGJ3mcOBegfrkf2sn8HZ92HwvAEaVf3gbViUKQAAAABJRU5ErkJggg==')",
-                backgroundRepeat: "no-repeat",
-                backgroundPosition: "center",
-                backgroundSize: "8vw",
-                width: "10vw",
-                height: "10vw",
-            },
+        "contrast-bg": {
+            width: "100%",
+            height: "100%",
+            backgroundSize: "100vw auto",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "left top"
+        },
+        "contrast-bg-hidebar": {
+            backgroundPosition: "0 -17.0667vw",
+        },
+        "contrast-tip": {
+            position: "fixed",
+            top: "0",
+            left: "0",
+            right: "0",
+            bottom: "0",
+            zIndex: "10000",
+            color: "#000",
+            fontSize: "5vw",
+        },
+        "contrast-design": {
+            position: "absolute",
+            top: "0",
+            left: "0",
+            bottom: "0",
+            paddingTop: "30px",
+            display: "webkitBox",
+            webkitBoxAlign: "center",
+            webkitBoxPack: "center",
+            right: "50%",
+            textAlign: "center",
+            backgroundColor: "rgba(255, 191, 0, .65)",
+            webkitAnimation: "contrast-an-show 3s linear .1s both",
+        },
+        "contrast-drag": {
+            position: "absolute",
+            left: "0",
+            top: "30%",
+            right: "0",
+            textAlign: "center",
+            textShadow: "#FC0 0 0 8px",
+            opacity: "0",
+            webkitAnimation: "contrast-an-show 3s linear 3.4s both",
+        },
+        "contrast-range": {
+            position: "fixed",
+            bottom: "0",
+            height: "140px",
+            left: "0",
+            right: "0",
+            display: "-webkit-box",
+            webkitBoxAlign: "center",
+            webkitBoxPack: "center",
+            backgroundColor: "rgba(255, 191, 0, .65)",
+            opacity: "0",
+            webkitAnimation: "contrast-an-show 3s linear 6.8s both",
+        },
+        "contrast-percentage": {
+            position: "absolute",
+            top: "300px",
+            left: "50%",
+            marginLeft: "-2em",
+            padding: "0 4px",
+            textAlign: "center",
+            backgroundColor: "rgba(255, 235, 59,1)",
+            color: "#000",
+            webkitTransition: "opacity .2s ease-in",
+            whiteSpace: "nowrap",
+            fontSize: "4vw",
+        },
+        "contrast-box": {
+            zIndex: "10001",
+            position: "absolute",
+            display: "none",
+            left: "0",
+            top: "0",
+            boxShadow: "rgba(0, 0, 0, .2) 0 0 2px",
+            pointerEvents: "none",
+            webkitTransition: "box-shadow .3s ease-in",
+        },
+        "contrast-box-inactive": {
+            boxShadow: "rgba(0, 0, 0, .2) 0 0 2px",
+        },
+        "contrast-box-active": {
+            boxShadow: "rgb(0, 0, 0) 0 0 4px"
+        },
+        "contrast-toolbar": {
+            boxShadow: "#BBB 0 2px 8px",
+            borderRadius: "50%",
+            overflow: "hidden",
+            position: "fixed",
+            height: "10vw",
+            lineHeight: "10vw",
+            display: "-webkit-box",
+            webkitBoxAlign: "center",
+            overflow: "hidden",
+            zIndex: "100002",
+        },
+        "contrast-toolbar-span": {
+            backgroundColor: "rgba(0, 0, 0, .4)"
+        },
+        "contrast-toolbar-span-active": {
+            backgroundColor: "rgba(33, 150, 243, 1)"
+        },
+        "contrast-compare": {
+            display: "block",
+            backgroundColor: "rgba(0, 0, 0, .4)",
+            backgroundImage: "url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABABAMAAABYR2ztAAAAMFBMVEUAAAD///////////////////////////////////////////////////////////87TQQwAAAAD3RSTlMAQMDwYKAwIBA/0J+AsHC6bjOZAAAA5UlEQVRIx+3VMQ6CQBAF0AkxVhZyAjkFLRyBzlIvYKys1dIjcANKOo/BETyCAZaYaDHGJbvLLrOuiRQU/HLyipnmDwycS5p+ByvE8YJdhCIAHvLUV5CZIRqAJ5ZgT4OHBDcaNBJENKglQA3MfZ47IgnUyROYwN+g+AwXdsD40MutIGkBs4EKWoBLC8gECGlQbwV4nkhQggAYkCBW4EWBBhTAmABBF5R9oBbz+MI9EEIXYNYDSx1UJmCgA8wNkJiA6aACE2ChAaqjhgTuGty4ivToqGJ3mcOBegfrkf2sn8HZ92HwvAEaVf3gbViUKQAAAABJRU5ErkJggg==')",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+            backgroundSize: "8vw",
+            width: "10vw",
+            height: "10vw",
+        },
 
-        }
-        // 设置样式
+    }
+    // 设置样式
     function setClass(dom, cssName) {
         if (cssMap[cssName]) {
             for (var attr in cssMap[cssName]) {
@@ -136,7 +139,8 @@
 
     // 工具对象
     var Contrast = {
-        setBg: function(src) {
+        setBg: function(src, option) {
+            option = option || {}
             var img = new Image();
             img.src = src;
             img.onload = function() {
@@ -145,6 +149,10 @@
                 contrast.style.height = Contrast.height + 'px';
             }
             contrast_bg.style.backgroundImage = "url(" + src + ")";
+            if (option.hideBar) {
+                setClass(contrast_bg, "contrast-bg-hidebar")
+
+            }
         },
         width: 0,
         height: 0
