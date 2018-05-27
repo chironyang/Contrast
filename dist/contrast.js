@@ -310,6 +310,7 @@
         fileInput: (function() {
             var input = document.createElement("input");
             input.type = "file";
+            input.accept="image/*";
             input.addEventListener("change", function(event) {
                 var fr = new FileReader();
                 fr.onload = function(e) {
