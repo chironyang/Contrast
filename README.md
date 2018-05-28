@@ -4,6 +4,8 @@ Contrast.js插件主要用于检验移动端Web重构还原度，由于大部分
 
 # Demo
 地址: [https://coderjunb.github.io/Contrast/demo/index.html](https://coderjunb.github.io/Contrast/demo/index.html)
+演示：
+<embed src="https://imgcache.qq.com/tencentvideo_v1/playerv3/TPout.swf?max_age=86400&v=20161117&vid=t0667mr1wnd&auto=0" allowFullScreen="true" quality="high" width="480" height="400" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
 
 # 引入插件
 1. 准备好需要验证的设计稿，如bg.png
