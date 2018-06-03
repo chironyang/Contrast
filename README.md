@@ -15,21 +15,24 @@ Demo地址: [https://coderjunb.github.io/Contrast/demo/index.html](https://coder
 3. 访问重构稿页面
 
 # API
-## Contrast.setBg(source[,option])
+## Contrast.setBg(option)
 
 * 参数：
-    * {String} source   设置设计稿作为背景图，为当前页面路径下的图片路径
     * {Object} option   设置设计稿其他选项
+        * {String} option.src   设置设计稿作为背景图，为当前页面路径下的图片路径
         * {Bool | Number} option.hideBar 是否隐藏设计稿中的菜单栏，默认为`false`。如果为`true`，默认隐藏高度为设计稿（750x1334）中的`128px`，同时可自定义其他高度，以设计稿为准。
 * 使用：
 
     ```
         // 默认设置设计稿为背景图
-        Contrast.setBg("bg.png");
+        Contrast.setBg({
+            src: "bg.png"
+        });
     ```
     ```
         // 通过设置hideBar隐藏设计稿任务栏
-        Contrast.setBg("bg.png",{
+        Contrast.setBg({
+            src:"bg.png",
             hideBar:true
         });
     ```

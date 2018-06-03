@@ -136,38 +136,47 @@
 
     // 工具对象
     var Contrast = {
-        setBg: function(src, option) {
-            // Object.assign(toolbarOption.bgImg,option);
+        setBg: function(option) {
+            // Object.assign(toolbarOption.bg,option);
             if (option) {
-                for (var i in toolbarOption.bgImg) {
+                for (var i in contOption) {
                     if (typeof option[i] !== 'undefined') {
-                        toolbarOption.bgImg[i] = option[i]
+                        contOption[i] = option[i];
                     }
                 }
             }
             var that = this;
             var img = new Image();
-            img.src = src;
-            img.onload = function() {
-                Contrast.width = CLIENT_WIDTH;
-                Contrast.height = img.height * CLIENT_WIDTH / img.width;
-                contrast.style.height = Contrast.height + 'px';
-                if (toolbarOption.bgImg.hideBar) {
-                    var barHeight = parseInt(toolbarOption.bgImg.hideBar) || 128,
-                        vw = barHeight * 100 / img.width + "vw"
-                    contrast_bg.style.backgroundPosition = "0 -" + vw;
+            if (contOption.src) {
+                img.src = contOption.src;
+                localStorage.setItem("contrastjs_bg", img.src);
+                img.onload = function() {
+                    Contrast.width = CLIENT_WIDTH;
+                    Contrast.height = img.height * CLIENT_WIDTH / img.width;
+                    contrast.style.height = Contrast.height + 'px';
+                    if (contOption.hideBar) {
+                        var barHeight = parseInt(contOption.hideBar) || 128,
+                            vw = barHeight * 100 / img.width + "vw"
+                        contrast_bg.style.backgroundPosition = "0 -" + vw;
+                    }
                 }
+                contrast_bg.style.backgroundImage = "url(" + contOption.src + ")";
             }
-            contrast_bg.style.backgroundImage = "url(" + src + ")";
+
         },
         width: 0,
-        height: 0
+        height: 0,
+        opacity_height: 140
     };
     window.Contrast = Contrast;
 
 
     var local_opacity = localStorage.getItem("contrastjs_opacity"),
-        local_width = localStorage.getItem("contrastjs_width");
+        local_width = localStorage.getItem("contrastjs_width"),
+        local_bg = localStorage.getItem("contrastjs_bg"),
+        local_conX = localStorage.getItem("contrastjs_x"),
+        local_conY = localStorage.getItem("contrastjs_y");
+
 
 
 
@@ -175,7 +184,10 @@
     var contOption = {
         opacity: Number(local_opacity) || 1,
         width: Number(local_width) || CLIENT_WIDTH / 2,
-        opacity_height: 140
+        src: local_bg,
+        hideBar: false,
+        x: local_conX || 60,
+        y: local_conY || 100
     };
     // 添加对比界面
     var contrast = document.createElement("div"),
@@ -213,6 +225,7 @@
     }
 
     function contSet() {
+        contrast_bg.style.opacity = contOption.opacity;
         contrast.style.width = contOption.width + 'px';
         contrast.style.height = Contrast.height + 'px';
     }
@@ -231,7 +244,7 @@
             r_sx = event.touches[0].clientX;
             r_sy = event.touches[0].clientY;
             // 小于阀值，调整透明度；大于阀值，调整宽度
-            if (CLIENT_HEIGHT - event.touches[0].clientY < contOption.opacity_height) {
+            if (CLIENT_HEIGHT - event.touches[0].clientY < Contrast.opacity_height) {
                 cont_opacity_isMoving = true;
                 cont_range_span.style.opacity = 1;
             } else {
@@ -299,14 +312,9 @@
     document.body.appendChild(toolbar);
     toolbar.appendChild(tool_compare);
     toolbarOption = {
-        x: 60,
-        y: 100,
         moving: false,
         overtime: 600,
         hasTouched: false,
-        bgImg: {
-            hideBar: false
-        },
         fileInput: (function() {
             var input = document.createElement("input");
             input.type = "file";
@@ -314,7 +322,9 @@
                 var fr = new FileReader();
                 fr.onload = function(e) {
                     // img.src=e.target.result;
-                    Contrast.setBg(e.target.result);
+                    Contrast.setBg({
+                        src: e.target.result
+                    });
                 }
                 fr.readAsDataURL(this.files[0]);
                 input.value = null;
@@ -327,8 +337,10 @@
     }
 
     function toolSet() {
-        toolbar.style.bottom = toolbarOption.y + "px";
-        toolbar.style.right = toolbarOption.x + "px";
+        toolbar.style.bottom = contOption.y + "px";
+        toolbar.style.right = contOption.x + "px";
+        localStorage.setItem("contrastjs_x", contOption.x)
+        localStorage.setItem("contrastjs_y", contOption.y)
     }
 
     toolSet();
@@ -346,8 +358,8 @@
         // 拖动工具条
         if (toolbarOption.hasTouched) {
             toolbarOption.moving = true;
-            toolbarOption.x -= event.touches[0].clientX - t_sx;
-            toolbarOption.y -= event.touches[0].clientY - t_sy;
+            contOption.x -= event.touches[0].clientX - t_sx;
+            contOption.y -= event.touches[0].clientY - t_sy;
 
             toolSet();
 
@@ -389,5 +401,4 @@
             contrast.style.display = "none";
         }
     }, true);
-
 })();
