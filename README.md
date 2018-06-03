@@ -17,10 +17,9 @@ Demo地址: [https://coderjunb.github.io/Contrast/demo/index.html](https://coder
 # API
 ## Contrast.setBg(option)
 
-* 参数：
-    * {Object} option   设置设计稿其他选项
-        * {String} option.src   设置设计稿作为背景图，为当前页面路径下的图片路径
-        * {Bool | Number} option.hideBar 是否隐藏设计稿中的菜单栏，默认为`false`。如果为`true`，默认隐藏高度为设计稿（750x1334）中的`128px`，同时可自定义其他高度，以设计稿为准。
+* 参数：{Object} option   设置设计稿其他选项
+    * {String} option.src   设置设计稿作为背景图，为当前页面路径下的图片路径
+    * {Bool | Number} option.hideBar 是否隐藏设计稿中的菜单栏，默认为`false`。如果为`true`，默认隐藏高度为设计稿（750x1334）中的`128px`，同时可自定义其他高度，以设计稿为准。
 * 使用：
 
     ```
